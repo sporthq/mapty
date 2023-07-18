@@ -82,8 +82,8 @@ class App {
   #curWorkout;
 
   constructor() {
-    // this._getPosition();
-    this._loadMap({ coords: { latitude: 52.22977, longitude: 21.01178 } });
+    this._getPosition();
+
     // Pobieranie danych z local storage
     this._getLocalStorages();
 
@@ -123,7 +123,10 @@ class App {
     btnDeleteAll.addEventListener('click', this.reset);
   }
 
+
   _getPosition() {
+
+
     if (navigator.geolocation)
       navigator.geolocation.getCurrentPosition(
         // 1 parametr funkcja -> co robimy kiedy mamy współrzędne -> ładujemy mapę
@@ -450,6 +453,7 @@ class App {
     const allPositive = (...inputs) => inputs.every(inp => inp > 0);
     // usuwamy domyśne zachowanie formularza czyli przełdowywanie strony
 
+   
     let currentWork = this.#workouts.find(
       work => work.id === btnId.dataset.set
     );
@@ -502,7 +506,7 @@ class App {
       )
         return alert('Musisz podać liczby większe od 0');
 
-      console.log('jest git');
+        console.log('jest git');
       const curIndex = this.#workouts.findIndex(
         el => el.id === editCurrenWork.id
       );
